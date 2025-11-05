@@ -43,3 +43,41 @@ You entered: 4
 [2, 2]
 [3, 1]
 [4]
+```
+
+## 2. Fibonacci Modified (Dynamic Programming / BigInteger)
+
+**Location:** `dynamic_programming/FibonacciModified.java`
+
+### Description
+
+Computes the n-th term of the **Modified Fibonacci** sequence defined by  
+T_{i+2} = T_{i+1}^2 + T_i, given integers t1, t2, and n.  
+Because values grow extremely fast, the implementation uses `java.math.BigInteger`.
+
+- Problem statement: <a href="https://www.hackerrank.com/challenges/fibonacci-modified/problem">HackerRank – Fibonacci Modified</a>
+
+### How It Works
+
+- Keep the last two terms and iterate from term 3 up to n.  
+- For each step, compute `curr = beforePrev + prev^2`, then advance the window.  
+- **Time:** O(n) iterations (each step does one square and one add).  
+  - Big-integer arithmetic cost grows with the number’s digits.  
+- **Extra space:** O(1) (besides the integers themselves).
+
+### Input and Output
+
+- **Input:** three integers `t1 t2 n` (per HackerRank prompt).  
+- **Output:** the value of `T_n` as a decimal string.
+
+### Example
+
+Input
+```
+0 1 5
+```
+
+Output
+```
+5
+```
