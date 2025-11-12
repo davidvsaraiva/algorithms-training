@@ -81,3 +81,40 @@ Output
 ```
 5
 ```
+
+### 3. **Paths in Matrix (Dynamic Programming)**
+
+**Location:** `dynamic_programming/PathsInMatrix.java`
+
+#### **Description**
+Counts the number of ways to go from the **top-left** to the **bottom-right** of a grid where:
+- `0` represents a free cell.
+- `1` represents a wall (blocked).
+- Movement is allowed **only right or down**.
+- If the start or end cell is blocked, the result is `0`.
+
+Problem statement:  <a href="https://www.udemy.com/course/dynamic-programming-x/learn/quiz/5350326#overview">Udemy - Paths In Matrix</a>
+
+#### **How It Works**
+- Uses a **Dynamic Programming (DP)** table to accumulate the number of valid paths to each cell.
+- Each cell’s value is computed as the sum of the number of ways from the cell **above** and the cell **to the left**.
+- Out-of-bounds conditions are treated as zero.
+
+#### **Input and Output**
+- **Input:** A 2D integer matrix (`int[][]`) containing `0`s and `1`s.
+- **Output:** A `int` value representing the total number of valid paths.
+
+#### **Example**
+**Input**
+```plaintext
+matrix = [
+  [0, 0, 1, 0, 1],
+  [0, 0, 0, 0, 1],
+  [0, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0]
+]
+```
+Output
+```
+7
+```
