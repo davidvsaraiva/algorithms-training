@@ -9,6 +9,7 @@ This repository contains small programs and algorithms that I am practicing as p
 The repository is organized into packages based on the type of algorithm or problem being addressed. For example:
 - **recursion**: Programs that solve problems using recursion, including backtracking algorithms.
     - **Backtracking** algorithms (e.g., Lego Blocks Permutations) are included as part of this package.
+    - **Dynamic programming** algorithms
 - **other categories**: Additional categories will be added as more algorithms are included
 
 ---
@@ -117,4 +118,34 @@ matrix = [
 Output
 ```
 7
+```
+
+### 4. **Coin Change (Dynamic Programming)**
+
+**Location:** `dynamic_programming/CoinChange.java`
+
+#### **Description**
+Given an amount and the denominations of coins available, determine how many ways change can be made for amount. 
+There is a limitless supply of each coin type.
+
+Problem statement:  <a href="https://www.hackerrank.com/challenges/coin-change/problem">Hackerrank - Coin change</a>
+
+#### **How It Works**
+- It builds a 2D DP table dp[i][j] where each cell stores the number of ways to make sum j using the first i coin types.
+- For each coin type i and target sum j, it adds the ways without using this coin (dp[i-1][j]) and, if possible, the ways including at least one of this coin (dp[i][j - coinValue]).
+- The answer is then the value in the last row and column, which represents using all coin types to form the total n.
+
+#### **Input and Output**
+- **Input:** n - as the amount to reach; c - list of coins
+- **Output:** A `int` value representing the total number of ways change can be made for amount
+
+#### **Example**
+**Input**
+```plaintext
+ n = 3
+ c = [8,3,1,2]
+```
+Output
+```
+3
 ```
