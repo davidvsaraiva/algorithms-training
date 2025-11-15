@@ -1,15 +1,14 @@
 # Algorithm Practice Repository
 
-This repository contains small programs and algorithms that I am practicing as part of my journey to improve problem-solving and programming skills. Each program is self-contained and explores different algorithmic techniques, such as recursion, backtracking, sorting, and more.
+This repository contains small programs and algorithms that I am practicing as part of my journey to improve problem-solving and programming skills. Each program is self-contained and explores different algorithmic techniques, such as backtracking, sorting, and more.
 
 ---
 
 ## 📂 Project Structure
 
 The repository is organized into packages based on the type of algorithm or problem being addressed. For example:
-- **recursion**: Programs that solve problems using recursion, including backtracking algorithms.
-    - **Backtracking** algorithms (e.g., Lego Blocks Permutations) are included as part of this package.
-    - **Dynamic programming** algorithms
+- **Backtracking** algorithms 
+- **Dynamic programming** algorithms
 - **other categories**: Additional categories will be added as more algorithms are included
 
 ---
@@ -18,7 +17,7 @@ The repository is organized into packages based on the type of algorithm or prob
 
 ### 1. **Lego Blocks Permutations (Backtracking)**
 
-**Location**: `recursion/LegoBlocksPermutationsBacktracking.java`
+**Location**: `backtracking/LegoBlocksPermutationsBacktracking.java`
 
 #### **Description**
 This program generates all possible permutations of blocks with dimensions `1`, `2`, `3`, and `4` to form a line of a given length (`n`). The program uses **backtracking** to efficiently explore and generate the solutions.
@@ -148,4 +147,35 @@ Problem statement:  <a href="https://www.hackerrank.com/challenges/coin-change/p
 Output
 ```
 3
+```
+
+### 5. **Bigger is Greater (Backtracking)**
+
+**Location:** `backtracking/BiggerIsGreater.java`
+
+#### **Description**
+Lexicographical order is often known as alphabetical order when dealing with strings. A string is greater than another string if it comes later in a lexicographically sorted list.
+Given a word, create a new word by swapping some or all of its characters. This new word must meet two criteria:
+- It must be greater than the original word
+- It must be the smallest word that meets the first condition
+
+Problem statement:  <a href="https://www.hackerrank.com/challenges/bigger-is-greater/problem">Hackerrank - Bigger Is Greater</a>
+
+#### **How It Works**
+- Uses a depth-first search to generate all permutations of the input string by picking characters from remainder and building newWord.
+- At each complete permutation, checks whether it is lexicographically greater than the original string and updates best with the smallest valid candidate.
+- After exploring all permutations, returns the best next-greater permutation or "no answer" if none exists.
+
+#### **Input and Output**
+- **Input:** w - as the initial word
+- **Output:** string value representing the least big word according to Lexicographical order or "no answer" if no valid permutation
+
+#### **Example**
+**Input**
+```plaintext
+abcd
+```
+Output
+```
+abdc
 ```
