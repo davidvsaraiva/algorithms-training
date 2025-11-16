@@ -12,6 +12,10 @@ package backtracking;
  * w = abcd
  * The next largest word is abdc.
  *
+ * NOTE: this is not the most efficient way of solving this type of problem, it searches over a factorial number of
+ * permutations. Nevertheless, it served the purpose of practicing backtracking. A better approach can be found here:
+ * {@link combinatorics.permutations.BiggerIsGreaterNextLexicographicalPermutation}
+ *
  * See <a href="https://www.hackerrank.com/challenges/bigger-is-greater/problem">
  * HackerRank – Bigger is Greater Problem
  */

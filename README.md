@@ -179,3 +179,18 @@ Output
 ```
 abdc
 ```
+
+### 6. **Bigger is Greater (Next Lexicographical Permutation)**
+
+**Location:** `combinatorics/permutations/BiggerIsGreaterNextLexicographicalPermutation.java`
+
+#### **Description**
+Same description (example and input/output) as problem 5.
+
+Problem statement:  <a href="https://www.hackerrank.com/challenges/bigger-is-greater/problem">Hackerrank - Bigger Is Greater</a>
+
+#### **How It Works**
+* The Next Lexicographical Permutation algorithm:
+* - finds the next permutation in dictionary order by identifying a pivot index,
+* - swapping it with the smallest larger element in the suffix,
+* - then reversing the suffix to make the result minimal but still larger
