@@ -194,3 +194,34 @@ Problem statement:  <a href="https://www.hackerrank.com/challenges/bigger-is-gre
 * - finds the next permutation in dictionary order by identifying a pivot index,
 * - swapping it with the smallest larger element in the suffix,
 * - then reversing the suffix to make the result minimal but still larger
+
+### 7. **House Robber (Dynamic programming)**
+
+**Location:** `dynamic_programming/HouseRobber.java`
+
+#### **Description**
+House robber (problem)
+* Given an array of integers arr where arr[i] represents the amount of money in the house i, you are asked to find the
+* maximum amount of money that a robber can steal knowing that he can't steal two adjacent houses because the security
+* systems would automatically call the police
+
+Problem statement:  <a href="https://www.udemy.com/course/dynamic-programming-x/learn/quiz/5345756#overview">Udemy - House Robber</a>
+
+#### **How It Works**
+- The algorithm keeps track of only two values: the best total you can get up to the previous house (prev1) and the one before that (prev2).
+- For each house, it decides whether it's better to rob it (value + prev2) or skip it (prev1).
+- It updates these two values as it moves through the array, and the final answer is the last computed maximum.
+
+#### **Input and Output**
+- **Input:** arr - initial array with the houses value
+- **Output:** int - maximum money robber can steal
+
+#### **Example**
+**Input**
+```plaintext
+arr = [2, 10, 3, 6, 8, 1, 7]
+```
+Output
+```
+25
+```
