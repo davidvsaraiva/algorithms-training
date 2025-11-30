@@ -7,8 +7,9 @@ This repository contains small programs and algorithms that I am practicing as p
 ## 📂 Project Structure
 
 The repository is organized into packages based on the type of algorithm or problem being addressed. For example:
-- **Backtracking** algorithms 
-- **Dynamic programming** algorithms
+- **Backtracking**
+- **Dynamic programming**
+- **Simulation**
 - **other categories**: Additional categories will be added as more algorithms are included
 
 ---
@@ -224,4 +225,51 @@ arr = [2, 10, 3, 6, 8, 1, 7]
 Output
 ```
 25
+```
+
+### 8. **The Bomberman Game (Simulation)**
+
+**Location:** `simulation/Bomberman.java`
+
+#### **Description**
+Bomberman lives in a rectangular grid. Each cell in the grid either contains a bomb or nothing at all.
+
+Each bomb can be planted in any cell of the grid but once planted, it will detonate after exactly 3 seconds. Once a bomb detonates, it's destroyed — along with anything in its four neighboring cells. This means that if a bomb detonates in cell , any valid cells  and  are cleared. If there is a bomb in a neighboring cell, the neighboring bomb is destroyed without detonating, so there's no chain reaction.
+
+Bomberman is immune to bombs, so he can move freely throughout the grid. Here's what he does:
+1. Initially, Bomberman arbitrarily plants bombs in some of the cells, the initial state.
+2. After one second, Bomberman does nothing.
+3. After one more second, Bomberman plants bombs in all cells without bombs, thus filling the whole grid with bombs. No bombs detonate at this point.
+4. After one more second, any bombs planted exactly three seconds ago will detonate. Here, Bomberman stands back and observes.
+5. Bomberman then repeats steps 3 and 4 indefinitely.
+
+Note that during every second Bomberman plants bombs, the bombs are planted simultaneously (i.e., at the exact same moment), and any bombs planted at the same time will detonate at the same time.
+
+#### **How It Works**
+- The rules of the system define a deterministic evolution: from any grid state, the next state is fully determined, so the algorithm simulates only the meaningful steps instead of every second.
+- Each generated state is converted to a compact key and stored in a map to record when it first appeared, while a list maintains all states in time order.
+- When a newly produced state already exists in the map, the process has entered a repeat loop; from this point forward, the states follow a fixed cycle.
+- For large n, instead of simulating further, the algorithm computes the equivalent time inside the cycle using modular arithmetic and return the precomputed state at that effective position.
+
+
+- The current solution detects when a cycle repeats and stops calculating new grids. However, this is not the most optimal solution - actually there are only 3 distinct grids that ever matter:
+1. "Initial grid" (t = 1)"
+2. "Grid at t = 3"
+3. "Grid at t = 5"
+
+When solving this, I haven't realized this pattern and I have built the cycle detection code.
+
+#### **Input and Output**
+- **Input:** n - int - number of seconds to simulate; grid - List of Strings with the initial state
+- **Output:** grid - state of the grid at n seconds
+
+#### **Example**
+**Input**
+```plaintext
+n = 3
+grid = ['.......', '...O...', '....O..','.......', 'OO.....', 'OO.....']
+```
+Output
+```
+grid = ['OOO.OOO', 'OO...OO', 'OOO...O', '..OO.OO', '...OOOO', '...OOOO']
 ```
