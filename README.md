@@ -10,6 +10,7 @@ The repository is organized into packages based on the type of algorithm or prob
 - **Backtracking**
 - **Dynamic programming**
 - **Simulation**
+- **Two Pointers / Searching**
 - **other categories**: Additional categories will be added as more algorithms are included
 
 ---
@@ -245,6 +246,7 @@ Bomberman is immune to bombs, so he can move freely throughout the grid. Here's 
 
 Note that during every second Bomberman plants bombs, the bombs are planted simultaneously (i.e., at the exact same moment), and any bombs planted at the same time will detonate at the same time.
 
+Problem statement: <a href="https://www.hackerrank.com/challenges/bomber-man/problem">Hackerrank- The Bomberman Game</a>
 #### **How It Works**
 - The rules of the system define a deterministic evolution: from any grid state, the next state is fully determined, so the algorithm simulates only the meaningful steps instead of every second.
 - Each generated state is converted to a compact key and stored in a map to record when it first appeared, while a list maintains all states in time order.
@@ -272,4 +274,37 @@ grid = ['.......', '...O...', '....O..','.......', 'OO.....', 'OO.....']
 Output
 ```
 grid = ['OOO.OOO', 'OO...OO', 'OOO...O', '..OO.OO', '...OOOO', '...OOOO']
+```
+
+### 9. **Climbing the leaderboard (Two pointers / searching)**
+
+**Location**: `javascript/two_pointers_searching/ClimbingLeaderboard.js`
+
+#### **Description**
+An arcade game player wants to climb to the top of the leaderboard and track their ranking. The game uses Dense
+Ranking, so its leaderboard works like this:
+- The player with the highest score is ranked number 1 on the leaderboard.
+- Players who have equal scores receive the same ranking number, and the next player(s) receive the immediately
+  following ranking number.
+
+The goal is to return an array with  the player's rank after each new score 
+
+Problem statement: <a href="https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem">Hackerrank - Climbing the Leaderboard</a>
+#### **How It Works**
+- The algorithm first removes duplicate scores from the ranked list to reflect dense ranking correctly.
+- It then starts from the lowest rank and, for each player score, moves a pointer upward through the leaderboard while the player’s score is greater than or equal to the current ranked score.
+- Because the pointer only moves in one direction and never resets, the solution runs in linear time O(n + m).
+
+#### **Input and Output**
+- **Input**:
+    - variable ranked[i] the leaderboard scores in decreasing order.
+    - variable player[j] the game scores.
+- **Output**: an array with the player's rank after each new score
+
+#### **Example**
+```plaintext
+ranked = [100, 90, 90, 80]
+player = [70, 80, 105]
+
+Return [4,3,1]
 ```
